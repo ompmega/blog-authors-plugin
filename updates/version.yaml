@@ -1,0 +1,4 @@
+1.0.1:
+  - First version of BlogAuthors
+  - Add query scope and filter by author
+  - create_authors_table.php

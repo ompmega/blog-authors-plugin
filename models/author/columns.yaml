@@ -1,0 +1,23 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+
+    avatar:
+        label: Avatar
+        type: partial
+        width: 1px
+        sortable: false
+
+    name:
+        label: Author
+
+    posts_count:
+        label: Posts
+        relation: posts
+        useRelationCount: true
+
+    created_at:
+        label: Created at
+        type: date

@@ -1,0 +1,77 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+
+    name:
+        label: ompmega.blogauthors::lang.author.name
+        required: true
+        placeholder: John Redcorn
+        attributes:
+            autofocus: 1
+        span: left
+
+    slug:
+        label: ompmega.blogauthors::lang.author.slug
+        required: true
+        placeholder: john-redcorn
+        span: right
+        preset:
+            field: name
+            type: slug
+
+tabs:
+    defaultTab: ompmega.blogauthors::lang.tab.profile
+    lazy:
+        - ompmega.blogauthors::lang.tab.posts
+    icons:
+        ompmega.blogauthors::lang.tab.profile: icon-user
+        ompmega.blogauthors::lang.tab.socials: icon-share-alt
+        ompmega.blogauthors::lang.tab.posts: icon-copy
+    fields:
+
+        bio:
+            label: ompmega.blogauthors::lang.author.biography
+            type: richeditor
+            commentAbove: ompmega.blogauthors::lang.author.biography_comment
+
+        socials:
+            type: repeater
+            prompt: ompmega.blogauthors::lang.socials.new_link
+            tab: ompmega.blogauthors::lang.tab.socials
+            form:
+                fields:
+
+                    url:
+                        label: ompmega.blogauthors::lang.socials.url
+                        placeholder: https://twitter.com/octobercms
+                        span: right
+
+                    text:
+                        label: ompmega.blogauthors::lang.socials.text
+                        placeholder: Twitter
+                        span: left
+
+                    new_tab:
+                        label: ompmega.blogauthors::lang.socials.new_tab
+                        type: checkbox
+                        default: true
+
+        posts:
+            context: [update, relationcontroller]
+            label: ompmega.blogauthors::lang.tab.posts
+            type: partial
+            tab: ompmega.blogauthors::lang.tab.posts
+
+
+secondaryTabs:
+    fields:
+
+        avatar:
+            label: backend::lang.user.avatar
+            type: fileupload
+            mode: image
+            imageHeight: 250
+            imageWidth: 250
+            commentAbove: 'Upload a square image (e.g. 250x250)'
